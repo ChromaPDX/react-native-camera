@@ -766,9 +766,9 @@ BOOL _sessionInterrupted = NO;
                 CGImageRef takenCGImage = takenImage.CGImage;
                 CGSize previewSize;
                 if (UIInterfaceOrientationIsPortrait([[UIApplication sharedApplication] statusBarOrientation])) {
-                    previewSize = CGSizeMake(self.previewLayer.frame.size.height, self.previewLayer.frame.size.width);
+                    previewSize = CGSizeMake(self.previewLayer.frame.size.height * 2, self.previewLayer.frame.size.width * 2);
                 } else {
-                    previewSize = CGSizeMake(self.previewLayer.frame.size.width, self.previewLayer.frame.size.height);
+                    previewSize = CGSizeMake(self.previewLayer.frame.size.width * 2, self.previewLayer.frame.size.height * 2);
                 }
                 CGRect cropRect = CGRectMake(0, 0, CGImageGetWidth(takenCGImage), CGImageGetHeight(takenCGImage));
                 CGRect croppedSize = AVMakeRectWithAspectRatioInsideRect(previewSize, cropRect);
@@ -1966,7 +1966,7 @@ BOOL _sessionInterrupted = NO;
 
 -(id)createBarcodeDetectorMlKit
 {
-    Class barcodeDetectorManagerClassMlkit = NSClassFromString(@"BarcodeDetectorManagerMlkit");
+    Class barcodeDetectorManagerClassMlkit = NSClassFromString(@"JabcodeDetectorManager");
     return [[barcodeDetectorManagerClassMlkit alloc] init];
 }
 

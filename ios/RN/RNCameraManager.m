@@ -292,6 +292,13 @@ RCT_CUSTOM_VIEW_PROPERTY(googleVisionBarcodeDetectorEnabled, BOOL, RNCamera)
     [view setupOrDisableBarcodeDetector];
 }
 
+RCT_CUSTOM_VIEW_PROPERTY(jabCodeDetectorEnabled, BOOL, RNCamera)
+{
+    view.canDetectBarcodes = [RCTConvert BOOL:json];
+    [view setupOrDisableBarcodeDetector];
+}
+
+
 RCT_CUSTOM_VIEW_PROPERTY(textRecognizerEnabled, BOOL, RNCamera)
 {
 
